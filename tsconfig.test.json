@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+
+    // The extension itself is built as CommonJS, but the tests run under bun,
+    // which is ESM-first. Checking them with ESM semantics allows top-level
+    // await and import.meta without affecting the build in tsconfig.json.
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  },
+  "include": ["src", "test"]
+}

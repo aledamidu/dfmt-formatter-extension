@@ -1,0 +1,67 @@
+{
+  "name": "dfmt-dlang",
+  "displayName": "dfmt - D formatter",
+  "description": "Format D source files with the dfmt formatter. Standalone: no D language server or other D extension required.",
+  "version": "0.1.0",
+  "publisher": "mata",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "keywords": [
+    "d",
+    "dlang",
+    "dfmt",
+    "formatter",
+    "format"
+  ],
+  "activationEvents": [
+    "onLanguage:d"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "dfmt",
+      "properties": {
+        "dfmt.path": {
+          "type": "string",
+          "default": "dfmt",
+          "scope": "resource",
+          "markdownDescription": "Path to the `dfmt` executable. The default `dfmt` is resolved through the system `PATH`, so no change is needed when dfmt is installed normally. Set an absolute path (for example `C:\\dlangdevtools\\dfmt.exe`) if dfmt is not on the `PATH`. Surrounding double quotes are ignored, and the path may contain spaces."
+        },
+        "dfmt.arguments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource",
+          "markdownDescription": "Extra command-line arguments passed to dfmt on every invocation, for example `--single_indent=true` or `--max_line_length=100`. Run `dfmt --help` for the full list of options. Arguments take precedence over `.editorconfig` and over dfmt's built-in defaults."
+        },
+        "dfmt.useEditorConfig": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "markdownDescription": "Run dfmt from the folder that contains the document so that the project's `.editorconfig` file is applied, matching what `dfmt` does when it is run on a file from the command line. Disable this to always use dfmt's built-in defaults plus `dfmt.arguments`."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "check-types": "tsc -p ./tsconfig.test.json",
+    "test": "bun test",
+    "package": "bun run compile && vsce package --allow-missing-repository --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "@types/node": "^22.0.0",
+    "@types/vscode": "1.95.0",
+    "@vscode/vsce": "^4.0.0",
+    "typescript": "^7.0.2"
+  }
+}
