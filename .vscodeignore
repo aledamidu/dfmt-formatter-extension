@@ -1,0 +1,28 @@
+# Files that are only needed to build or test the extension.
+.vscode/**
+.vscode-test/**
+src/**
+test/**
+out/**/*.map
+
+# Build and tooling configuration.
+tsconfig.json
+tsconfig.test.json
+bunfig.toml
+.eslintrc.json
+.gitignore
+
+# The task description this extension was built from.
+task.md
+
+# The dfmt binary is never bundled: dfmt.path points at the user's installation.
+dfmt.exe
+*.vsix
+
+# Sample D sources used to try the extension out.
+app.d
+
+# Lock files are irrelevant for a package with no runtime dependencies.
+bun.lockb
+bun.lock
+package-lock.json
