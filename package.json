@@ -3,7 +3,7 @@
   "displayName": "dfmt - D formatter",
   "description": "Format D source files with the dfmt formatter. Standalone: no D language server or other D extension required.",
   "version": "0.1.0",
-  "publisher": "local",
+  "publisher": "mata",
   "license": "MIT",
   "engines": {
     "vscode": "^1.95.0"
